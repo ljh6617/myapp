@@ -23,7 +23,7 @@ choices = {}
 
 with st.form("quiz"):
     for n, (i, row) in enumerate(quiz.iterrows(), start = 1):
-        st.markdown(f"문제 {n}. {row["문제"]}")
+        st.markdown(f"문제 {n}. {row['문제']}")
         choices[i] = {row[f"보기{k}"]: k for k in range(1, 5) if pd.notna(row[f"보기{k}"])}
         answers[i] = st.radio("답을 고르세요.", list(choices[i]), index=None, key=f"q_{i}")
     submitted = st.form_submit_button("채점하기")

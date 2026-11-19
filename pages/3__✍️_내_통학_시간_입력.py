@@ -25,7 +25,7 @@ if not spreadsheet:
     st.stop()
 
 conn = st.connection("gsheets", type = GSheetsConnection)
-df = conn.read(spreadsheet = spreadsheet, worksheet = "측정자료", usecols = [0,1,2], ttl = 0)
+df = conn.read(spreadsheet = spreadsheet, worksheet = "data", usecols = [0,1,2], ttl = 0)
 # st.write(df)
 
 # 통학시간 제출하기
@@ -45,7 +45,7 @@ if submitted:
         st.write(new_row)
         # df 업데이트
         df = pd.concat([df, new_row], ignore_index = True)
-        conn.update(worksheet = "측정자료", data = df)
+        conn.update(worksheet = "data", data = df)
         st.success(f"{student_id}학생의 통학시간이 저장되었습니다. ")
 
 st.subheader(f"지금까지 입력한 학생 수 : {len(df)}명")
