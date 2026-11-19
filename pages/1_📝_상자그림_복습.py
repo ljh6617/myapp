@@ -57,15 +57,15 @@ with st.form("quiz"):
     index = None, key = n) for n, q in enumerate(quiz)]
     submitted = st.form_submit_button("채점하기")
 
-if submitted:
-    score = 0
-    for q, a in zip(quiz, answers):
-        if a ==q["정답"]:
-            score += 1
-            st.success(f"{q["문제"]}\n\n정답입니다. ")
-        elif a is None:
-            st.error(f"{q["문제"]}\n\n문항에 답을 고르지 않았습니다.")
-        else :
-            st.warning(f"{q["문제"]}\n\n{q["힌트"][a]}")
+# if submitted:
+#     score = 0
+#     for q, a in zip(quiz, answers):
+#         if a ==q["정답"]:
+#             score += 1
+#             st.success(f"{q["문제"]}\n\n정답입니다. ")
+#         elif a is None:
+#             st.error(f"{q["문제"]}\n\n문항에 답을 고르지 않았습니다.")
+#         else :
+#             st.warning(f"{q["문제"]}\n\n{q["힌트"][a]}")
 
-    st.metric("점수", f"{score} / {len(quiz)}")
+#     st.metric("점수", f"{score} / {len(quiz)}")
